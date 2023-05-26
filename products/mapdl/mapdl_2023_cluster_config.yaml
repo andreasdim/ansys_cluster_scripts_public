@@ -1,0 +1,36 @@
+Region: eu-central-1
+Image:
+  Os: ubuntu2004
+HeadNode:
+  InstanceType: t3.xlarge
+  Networking:
+    SubnetId: tbt
+  Ssh:
+    KeyName: tbt
+SharedStorage:
+  - MountDir: /fsx
+    Name: fsx-external
+    StorageType: FsxLustre
+    FsxLustreSettings:
+       FileSystemId: tbt
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: queue1
+    ComputeResources:
+    - Name: c5n18xlarge
+      Instances:
+      - InstanceType: c5n.18xlarge
+      MinCount: 0
+      MaxCount: 10000
+      Efa:
+        Enabled: true  
+      Networking:   
+        PlacementGroup:
+          Enabled: true
+    Networking:
+      SubnetIds:
+      - tbt
+    CustomActions:
+      OnNodeStart:
+        Script: tbt
