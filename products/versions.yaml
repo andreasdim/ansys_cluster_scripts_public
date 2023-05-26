@@ -1,4 +1,4 @@
 MAPDL_2023_R1:
   prereq_installation_script: 'mapdl/mapdl_2023_prereq_installation.sh'
   share_installation_script: 'mapdl/mapdl_2023_share_install.sh'
-  cluster_config_yaml: 'mapdl/2023_cluster_config.yaml'  
+  cluster_config_yaml: 'mapdl/mapdl_2023_cluster_config.yaml'  
